@@ -18,7 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico", "src/assets", "src/assets/img"],
             "styles": [
               "src/styles.css",
               "src/assets/css/style.css",
@@ -33,7 +33,6 @@
               "src/assets/js/main.js",
               "src/assets/vendor/apexcharts/apexcharts.min.js",
               "src/assets/vendor/bootstrap/js/bootstrap.min.js",
-              "src/assets/vendor/chart.js/chart.js",
               "src/assets/vendor/echarts/echarts.min.js",
               "src/assets/vendor/quill/quill.min.js",
               "src/assets/vendor/simple-datatables/simple-datatables.js",
@@ -105,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4d98f4f4-6d0b-4555-bb32-dfb5cd877049"
   }
 }
