@@ -4,16 +4,21 @@ import { Injectable, OnInit } from "@angular/core";
 
 @Injectable()
 export class CategoryRepository implements OnInit {
+
     private categories: CategoryModel[] = []
 
-    constructor(private restService: RestService) { }
-
-    ngOnInit(): void {
+    constructor(private restService: RestService) {
         this.restService.getCategories().subscribe(categories => this.categories = categories)
     }
 
-    getCategories(id: number): CategoryModel {
+    ngOnInit(): void {
+    }
+
+    getCategory(id: number): CategoryModel {
         return this.categories.find(i => i.id === id)
+    }
+    getCategories(): CategoryModel[] {
+        return this.categories
     }
 
 }

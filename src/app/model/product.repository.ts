@@ -6,14 +6,18 @@ import { Injectable, OnInit } from "@angular/core";
 export class ProductRepository implements OnInit {
     private products: ProductModel[] = []
 
-    constructor(private restService: RestService) { }
+    constructor(private restService: RestService) {
+        this.restService.getProducts().subscribe(products => this.products = products)
+    }
 
     ngOnInit(): void {
-        this.restService.getProducts().subscribe(products => this.products = products)
     }
 
     getProduct(id: number): ProductModel {
         return this.products.find(i => i.id === id)
+    }
+    getProducts(): ProductModel[] {
+        return this.products
     }
 
 }
