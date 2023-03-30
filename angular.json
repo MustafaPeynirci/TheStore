@@ -18,7 +18,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets", "src/assets/img"],
+            "assets": [
+              "src/favicon.ico",
+              "src/thestore-favicon.png",
+              "src/assets",
+              "src/assets/img"
+            ],
             "styles": [
               "src/styles.css",
               "src/assets/css/style.css",
@@ -32,14 +37,12 @@
               "src/assets/vendor/simple-datatables/style.css"
             ],
             "scripts": [
-              "src/assets/js/main.js",
               "src/assets/vendor/apexcharts/apexcharts.min.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
-              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/vendor/echarts/echarts.min.js",
               "src/assets/vendor/quill/quill.min.js",
               "src/assets/vendor/simple-datatables/simple-datatables.js",
-              "src/assets/vendor/tinymce/tinymce.min.js"
+              "src/assets/vendor/tinymce/tinymce.min.js",
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {
