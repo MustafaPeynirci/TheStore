@@ -39,15 +39,6 @@
   };
 
   /**
-   * Sidebar toggle
-   */
-  if (select(".toggle-sidebax")) {
-    on("click", ".toggle-sidebax", function (e) {
-      select("body").classList.toggle("toggle-sidebar");
-    });
-  }
-
-  /**
    * Search bar toggle
    */
   if (select(".search-bar-toggle")) {

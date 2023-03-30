@@ -42,7 +42,9 @@
               "src/assets/vendor/quill/quill.min.js",
               "src/assets/vendor/simple-datatables/simple-datatables.js",
               "src/assets/vendor/tinymce/tinymce.min.js",
-              "src/assets/js/main.js"
+              "./node_modules/jquery/dist/jquery.js",
+              "src/assets/js/main.js",
+              "src/assets/js/custom.js"
             ]
           },
           "configurations": {
