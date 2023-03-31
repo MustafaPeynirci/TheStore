@@ -10,18 +10,13 @@
                 <div class="card-body">
                     <h5 class="card-title">Categories</h5>
                     <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                            Category 1
+                        <button *ngFor="let category of categories" type="button" (click)="changeCategory(category)"
+                            [class.active]="category==selectedCategory" class="list-group-item list-group-item-action"
+                            aria-current="true">
+                            {{category.name}}
                         </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            Category 2
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            Category 3
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            Category 4
-                        </button>
+                        <button type="button" (click)="changeCategory()"
+                            class="list-group-item list-group-item-action">All Categories</button>
                     </div>
                 </div>
             </div>
@@ -32,15 +27,18 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col" *ngFor="let product of products">
                     <div class="card h-100">
-                        <img src="../../assets/img/{{product.imageUrl}}" class="card-img-top" alt="{{product.name}}">
+                        <div class="d-flex justify-content-center">
+                            <img src="../../assets/img/{{product.imageUrl}}" class="card-img-top w-75"
+                                alt="{{product.name}}">
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">{{product.name}}</h5>
                             <p class="card-text">{{product.description}}</p>
                             <small class="text-muted"><i class="bi bi-currency-dollar"></i>{{product.price}}</small>
                         </div>
                         <div class="d-flex justify-content-end mb-3 mx-2">
-                            <button class="btn btn-outline-primary">Details</button>
-                            <button class="btn btn-outline-primary mx-2">Add to Cart</button>
+                            <button class="btn btn-outline-secondary">Details</button>
+                            <button class="btn btn-outline-dark mx-2">Add to Cart</button>
                         </div>
                     </div>
                 </div>

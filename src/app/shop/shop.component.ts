@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
+  public selectedCategory: CategoryModel = null
+
   constructor(
     private productRepository: ProductRepository,
     private categoryRepository: CategoryRepository
@@ -24,6 +26,9 @@ export class ShopComponent implements OnInit {
   }
   get categories(): CategoryModel[] {
     return this.categoryRepository.getCategories()
+  }
+  changeCategory(newCategory?: CategoryModel) {
+    this.selectedCategory = newCategory
   }
 
 }
