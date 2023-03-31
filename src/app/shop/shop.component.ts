@@ -12,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class ShopComponent implements OnInit {
 
   public selectedCategory: CategoryModel = null
+  public productsPerPage = 3
+  public selectedPage = 1
 
   constructor(
     private productRepository: ProductRepository,
@@ -22,13 +24,23 @@ export class ShopComponent implements OnInit {
   }
 
   get products(): ProductModel[] {
-    return this.productRepository.getProducts(this.selectedCategory)
+    let index = (this.selectedPage - 1) * this.productsPerPage
+    return this.productRepository.getProducts(this.selectedCategory).slice(index, index + this.productsPerPage)
   }
   get categories(): CategoryModel[] {
     return this.categoryRepository.getCategories()
   }
+  get pageNumbers(): number[] {
+    return Array(Math.ceil(this.productRepository
+      .getProducts(this.selectedCategory).length / this.productsPerPage))
+      .fill(0)
+      .map((a, i) => i + 1)
+  }
   changeCategory(newCategory?: CategoryModel) {
     this.selectedCategory = newCategory
+  }
+  changePage(p: number) {
+    this.selectedPage = p
   }
 
 }
