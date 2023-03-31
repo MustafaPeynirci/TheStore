@@ -7,6 +7,7 @@ module.exports = function () {
         price: 4490,
         imageUrl: "i7.png",
         description: "It preserves its power and its value.",
+        category: "Telephone",
       },
       {
         id: 2,
@@ -14,6 +15,7 @@ module.exports = function () {
         price: 6140,
         imageUrl: "i8.png",
         description: "The power was revived.",
+        category: "Telephone",
       },
       {
         id: 3,
@@ -21,6 +23,7 @@ module.exports = function () {
         price: 8410,
         imageUrl: "iX.png",
         description: "Power meets bionic chip.",
+        category: "Telephone",
       },
       {
         id: 4,
@@ -28,6 +31,7 @@ module.exports = function () {
         price: 13570,
         imageUrl: "i11.png",
         description: "Very talented. As always.",
+        category: "Telephone",
       },
       {
         id: 5,
@@ -35,6 +39,7 @@ module.exports = function () {
         price: 17230,
         imageUrl: "i12.png",
         description: "It is very powerful in every aspect.",
+        category: "Telephone",
       },
       {
         id: 6,
@@ -42,6 +47,23 @@ module.exports = function () {
         price: 24890,
         imageUrl: "i13.png",
         description: "The best for the best.",
+        category: "Telephone",
+      },
+      {
+        id: 7,
+        name: "MacBook Air",
+        price: 28900,
+        imageUrl: "macbook-air.jpeg",
+        description: "You know him. It knows no boundaries.",
+        category: "Computer",
+      },
+      {
+        id: 8,
+        name: "MacBook Pro",
+        price: 34490,
+        imageUrl: "macbook-pro.jpeg",
+        description: "Get the power to take your business to the next level.",
+        category: "Computer",
       },
     ],
     categories: [

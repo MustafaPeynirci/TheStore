@@ -4,6 +4,14 @@
 
 <main id="main" class="main">
     <div class="row">
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active">Breadcrumbs</li>
+                </ol>
+            </nav>
+        </div>
         <div class="col-md-3">
 
             <div class="card">
@@ -23,7 +31,13 @@
 
         </div>
         <div class="col-md-9">
-
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">
+                        {{products.length}} products found.
+                    </li>
+                </ol>
+            </nav>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col" *ngFor="let product of products">
                     <div class="card h-100">

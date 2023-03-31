@@ -22,7 +22,7 @@ export class ShopComponent implements OnInit {
   }
 
   get products(): ProductModel[] {
-    return this.productRepository.getProducts()
+    return this.productRepository.getProducts(this.selectedCategory)
   }
   get categories(): CategoryModel[] {
     return this.categoryRepository.getCategories()
