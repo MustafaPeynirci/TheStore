@@ -1,3 +1,4 @@
+import { Cart } from './../model/cart.model';
 import { CategoryModel } from './../model/category.model';
 import { ProductModel } from './../model/product.model';
 import { CategoryRepository } from './../model/category.repository';
@@ -17,7 +18,8 @@ export class ShopComponent implements OnInit {
 
   constructor(
     private productRepository: ProductRepository,
-    private categoryRepository: CategoryRepository
+    private categoryRepository: CategoryRepository,
+    private cart: Cart
   ) { }
 
   ngOnInit(): void {
@@ -42,5 +44,7 @@ export class ShopComponent implements OnInit {
   changePage(p: number) {
     this.selectedPage = p
   }
-
+  addProductToCart(product: ProductModel) {
+    this.cart.addItem(product)
+  }
 }
