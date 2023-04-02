@@ -43,10 +43,13 @@
                                 </td>
                                 <td>{{item.product.name}}</td>
                                 <td>{{item.product.price}}</td>
-                                <td>{{item.quantity}}</td>
+                                <td class="w-10">
+                                    <input type="number" class="form-control" [value]="item.quantity"
+                                        (change)="cart.updateQuantity(item.product, $any($event.target).value)">
+                                </td>
                                 <td><i class="bi bi-currency-dollar"></i>{{item.quantity * item.product.price}}</td>
                                 <td>
-                                    <button class="btn">
+                                    <button class="btn" (click)="cart.removeItem(item.product.id)">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>
