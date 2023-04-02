@@ -1,1 +1,82 @@
-<p>cart-detail works!</p>
+<aside id="sidebar" class="sidebar">
+    <app-navbar></app-navbar>
+</aside>
+
+<main id="main" class="main">
+    <div class="row">
+        <div class="pagetitle">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active">Cart</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="cart.itemCount==0">
+            <div class="alert alert-info alert-dismissible fade show text-center col-md-6 text-muted" role="alert">
+                <i class="bi bi-info-circle"></i><br>
+                There are no items in your cart <br>
+                <button class="btn" routerLink="/shop">
+                    Click to continue shopping.
+                </button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card" *ngIf="cart.itemCount>0">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cart.items">
+                                <td>
+                                    <img src="../../../assets/img/{{item.product.imageUrl}}" width="80"
+                                        alt="{{item.product.name}}">
+                                </td>
+                                <td>{{item.product.name}}</td>
+                                <td>{{item.product.price}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td><i class="bi bi-currency-dollar"></i>{{item.quantity * item.product.price}}</td>
+                                <td>
+                                    <button class="btn">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" *ngIf="cart.itemCount>0">
+                <div class="card-body">
+                    <div class="text-left">
+                        <h5 class="card-title pt-1">Shopping Summary</h5>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="col">Total</th>
+                                <td><span class="text-muted"><i class="bi bi-currency-dollar"></i>{{cart.total}}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <button class="btn btn-outline-secondary" routerLink="/shop">Keep Shopping</button>
+                        <button class="btn btn-outline-success mx-2" routerLink="/checkout">Finish Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

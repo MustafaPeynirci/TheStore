@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModelModule } from './../model/model.module';
 import { NgModule } from "@angular/core";
@@ -9,7 +10,7 @@ import { CartDetailComponent } from './cart-detail/cart-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
-    imports: [ModelModule, BrowserModule, FormsModule],
+    imports: [ModelModule, BrowserModule, FormsModule, RouterModule],
     providers: [],
     declarations: [ShopComponent, NavbarComponent, CartSummaryComponent, CartDetailComponent, CheckoutComponent],
     exports: [ShopComponent, CartDetailComponent, CheckoutComponent]

@@ -4,6 +4,7 @@ import { ProductModel } from './../model/product.model';
 import { CategoryRepository } from './../model/category.repository';
 import { ProductRepository } from './../model/product.repository';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -19,7 +20,8 @@ export class ShopComponent implements OnInit {
   constructor(
     private productRepository: ProductRepository,
     private categoryRepository: CategoryRepository,
-    private cart: Cart
+    private cart: Cart,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -46,5 +48,6 @@ export class ShopComponent implements OnInit {
   }
   addProductToCart(product: ProductModel) {
     this.cart.addItem(product)
+    this.router.navigateByUrl("/cart")
   }
 }
