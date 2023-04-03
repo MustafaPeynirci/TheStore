@@ -1,3 +1,5 @@
+import { OrderRepository } from './order.repository';
+import { Order } from './order.model';
 import { Cart } from './cart.model';
 import { ProductRepository } from './product.repository';
 import { CategoryRepository } from './category.repository';
@@ -7,6 +9,6 @@ import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     imports: [HttpClientModule],
-    providers: [RestService, ProductRepository, CategoryRepository, Cart]
+    providers: [RestService, ProductRepository, CategoryRepository, Cart, Order, OrderRepository]
 })
 export class ModelModule { }

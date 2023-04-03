@@ -1,3 +1,4 @@
+import { Order } from './order.model';
 import { CategoryModel } from './category.model';
 import { ProductModel } from './product.model';
 import { HttpClient } from '@angular/common/http';
@@ -16,6 +17,9 @@ export class RestService {
   }
   getCategories(): Observable<CategoryModel[]> {
     return this.http.get<CategoryModel[]>(this.baseUrl + "categories")
+  }
+  saveOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>(this.baseUrl + "orders", order)
   }
 
 }

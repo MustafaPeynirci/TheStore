@@ -49,7 +49,7 @@
                                 </td>
                                 <td><i class="bi bi-currency-dollar"></i>{{item.quantity * item.product.price}}</td>
                                 <td>
-                                    <button class="btn" (click)="cart.removeItem(item.product.id)">
+                                    <button class="btn btnDelete" (click)="cart.removeItem(item.product.id)">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </td>
@@ -74,7 +74,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
+                    <div class="d-flex">
                         <button class="btn btn-outline-secondary" routerLink="/shop">Keep Shopping</button>
                         <button class="btn btn-outline-success mx-2" routerLink="/checkout">Finish Shopping</button>
                     </div>

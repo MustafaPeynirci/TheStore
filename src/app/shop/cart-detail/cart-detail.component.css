@@ -1,3 +1,6 @@
+.btnDelete:hover {
+  color: #dc3545;
+}
 .w-10 {
   width: 10%;
 }
