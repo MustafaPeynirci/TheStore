@@ -1,1 +1,67 @@
-<p>checkout works!</p>
+<aside id="sidebar" class="sidebar">
+    <app-navbar></app-navbar>
+</aside>
+
+<main id="main" class="main">
+    <div class="d-flex justify-content-center text-center">
+        <div class="alert alert-success alert-dismissible fade show col-md-6 mt-5" role="alert" *ngIf="orderSent">
+            <i class="bi bi-check-circle me-1"></i>
+            Thank you! <br>
+            Your order has been saved. <br>
+            <button class="btn btn-outline-success mt-2" routerLink="/shop">Keep Shopping</button>
+        </div>
+    </div>
+    <div class="card" *ngIf="!orderSent">
+        <div class="card-body">
+            <h5 class="card-title">Form</h5>
+            <form class="row g-3" #form="ngForm" (ngSubmit)="submitOrder(form)">
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" #name="ngModel" [(ngModel)]="order.name" name="name"
+                            required placeholder="Your Name">
+                        <label for="floatingName">Your Name</label>
+                        <span class="text-danger mx-2" *ngIf="submitted && name.invalid">Please enter your name</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" #email="ngModel" [(ngModel)]="order.email" name="email"
+                            required placeholder="Your Email">
+                        <label for="floatingEmail">Your Email</label>
+                        <span class="text-danger mx-2" *ngIf="submitted && email.invalid">Please enter your email</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" #phone="ngModel" [(ngModel)]="order.phone"
+                            name="phone" required placeholder="Phone">
+                        <label for="floatingPassword">Phone</label>
+                        <span class="text-danger mx-2" *ngIf="submitted && phone.invalid">Please enter your phone</span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" #address="ngModel" [(ngModel)]="order.address" name="address"
+                            required placeholder="Address" style="height: 100px;"></textarea>
+                        <label for="floatingTextarea">Address</label>
+                        <span class="text-danger mx-2" *ngIf="submitted && address.invalid">Please enter your
+                            address</span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" #city="ngModel" [(ngModel)]="order.city" name="city"
+                            required placeholder="City">
+                        <label for="floatingCity">City</label>
+                        <span class="text-danger mx-2" *ngIf="submitted && city.invalid">Please enter your city</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-outline-secondary" routerLink="/shop">Keep Shopping</button>
+                    <button class="btn btn-outline-success mx-2">Finish Shopping</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>

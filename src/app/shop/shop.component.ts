@@ -48,6 +48,6 @@ export class ShopComponent implements OnInit {
   }
   addProductToCart(product: ProductModel) {
     this.cart.addItem(product)
-    this.router.navigateByUrl("/cart")
+    // this.router.navigateByUrl("/cart")
   }
 }

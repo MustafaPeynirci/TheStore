@@ -1,3 +1,4 @@
+import { Cart } from './../../model/cart.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cart: Cart) { }
 
   ngOnInit(): void {
   }
