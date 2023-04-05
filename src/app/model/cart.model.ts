@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import { ProductModel } from './product.model';
 
@@ -6,6 +7,8 @@ export class Cart {
     public items: CartItem[] = []
     public itemCount: number = 0
     public total: number = 0
+
+    constructor(private toastr: ToastrService) { }
 
     addItem(product: ProductModel, quantity: number = 1) {
         let item = this.items.find(i => i.product.id == product.id)
@@ -37,6 +40,7 @@ export class Cart {
         let index = this.items.findIndex(i => i.product.id == id)
         this.items.splice(index, 1)
         this.calculate()
+        this.toastr.warning("The product has been deleted")
     }
     clear() {
         this.items = []

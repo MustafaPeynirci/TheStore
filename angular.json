@@ -25,6 +25,7 @@
               "src/assets/img"
             ],
             "styles": [
+              "./node_modules/ngx-toastr/toastr.css",
               "src/styles.css",
               "src/assets/css/style.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
