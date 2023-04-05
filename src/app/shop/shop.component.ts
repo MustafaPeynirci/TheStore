@@ -16,6 +16,7 @@ export class ShopComponent implements OnInit {
   public selectedCategory: CategoryModel = null
   public productsPerPage = 3
   public selectedPage = 1
+  public selectedProducts: ProductModel[] = []
 
   constructor(
     private productRepository: ProductRepository,
@@ -45,6 +46,10 @@ export class ShopComponent implements OnInit {
   }
   changePage(p: number) {
     this.selectedPage = p
+  }
+  changePageSize(size: number) {
+    this.productsPerPage = size
+    this.changePage(1)
   }
   addProductToCart(product: ProductModel) {
     this.cart.addItem(product)

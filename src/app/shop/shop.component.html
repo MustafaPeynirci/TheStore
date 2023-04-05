@@ -30,10 +30,18 @@
         </div>
         <div class="col-md-9">
             <nav>
-                <ol class="breadcrumb">
+                <ol class="breadcrumb justify-content-between">
                     <li class="breadcrumb-item active">
                         {{products.length}} products found.
                     </li>
+                    <div class="col-sm-3">
+                        <select class="form-select" [value]="productsPerPage"
+                            (change)="changePageSize($any($event.target).value)">
+                            <option value="3">Three product</option>
+                            <option value="4">Four product</option>
+                            <option value="6">Six product</option>
+                        </select>
+                    </div>
                 </ol>
             </nav>
             <app-cart-summary></app-cart-summary>
