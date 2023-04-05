@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Categories</h5>
+        <div class="list-group">
+            <button *ngFor="let category of categories" type="button" (click)="changeCategory(category)"
+                [class.active]="category==selectedCategory" class="list-group-item list-group-item-action"
+                aria-current="true">
+                {{category.name}}
+            </button>
+            <button type="button" (click)="changeCategory()" class="list-group-item list-group-item-action">All
+                Categories</button>
+        </div>
+    </div>
+</div>
