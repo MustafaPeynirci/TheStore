@@ -1,1 +1,40 @@
-<p>auth works!</p>
+<main>
+    <div class="container">
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <div class="card mb-3 p-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center pt-3 pb-5">
+                                    <img src="assets/img/thestore-logo.png" width="50%" alt="logo">
+                                </div>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert"
+                                    *ngIf="errorMessage">
+                                    <i class="bi bi-exclamation-octagon me-1"></i>
+                                    {{errorMessage}}
+                                </div>
+                                <form #form="ngForm" (ngSubmit)="login(form)" class="row g-3 needs-validation"
+                                    novalidate>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" placeholder="Username"
+                                            [(ngModel)]="username" name="username" required>
+                                        <label for="floatingInput">Username</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            [(ngModel)]="password" name="password" required>
+                                        <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 mb-2" type="submit">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
