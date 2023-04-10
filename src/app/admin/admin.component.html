@@ -1,1 +1,74 @@
-<p>admin works!</p>
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="#" class="logo text-decoration-none d-flex align-items-center">
+            <img src="assets/img/thestore-logo.png" alt="">
+        </a>
+        <div class="d-flex align-items-end">
+            <span>| </span>
+            <h6 class="mb-0 ms-2 text-muted"> Administrator</h6>
+        </div>
+    </div>
+    <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+            <li class="nav-item dropdown pe-3">
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                    <img src="assets/img/Mustafa.png" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">M. Peynirci</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <li class="dropdown-header">
+                        <h6>Mustafa Peynirci</h6>
+                        <span>Front End Developer</span>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" type="button" (click)="signOut()">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/shop">
+                <i class="bi bi-grid"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLink="/admin/main/products" routerLinkActive="active">
+                <i class="bi bi-box"></i>
+                <span>Products</span>
+                <span class="badge text-muted"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLink="/admin/main/categories" routerLinkActive="active">
+                <i class="bi bi-menu-button-wide"></i>
+                <span>Categories</span>
+                <span class="badge text-muted"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLink="/admin/main/orders" routerLinkActive="active">
+                <i class="bi bi-archive"></i>
+                <span>Orders</span>
+            </a>
+        </li>
+    </ul>
+</aside>
+
+<main id="main" class="main">
+    <div class="row">
+        <div class="col-md-12">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</main>

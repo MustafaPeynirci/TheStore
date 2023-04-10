@@ -35,19 +35,13 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" routerLink="/admin/main">
                                 <i class="bi bi-person"></i>
                                 <span>Login</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="bi bi-card-list"></i>
-                                <span>Register</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" type="button" (click)="signOut()">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -76,12 +70,6 @@
                 <a class="nav-link collapsed">
                     <i class="bi bi-archive"></i>
                     <span>Orders</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" routerLink="/admin">
-                    <i class="bi bi-x-diamond"></i>
-                    <span>Admin</span>
                 </a>
             </li>
         </ul>

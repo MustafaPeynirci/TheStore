@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../model/auth.service';
+import { Cart } from './../model/cart.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public cart: Cart,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  signOut() {
+    this.authService.clear()
+    this.router.navigateByUrl("/shop")
   }
 
 }
