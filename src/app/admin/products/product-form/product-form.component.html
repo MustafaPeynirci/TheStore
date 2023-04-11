@@ -1,1 +1,50 @@
-<p>product-form works!</p>
+<div class="pagetitle">
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/admin/main" class="text-decoration-none">Admin</a></li>
+            <li class="breadcrumb-item active"> {{editing ? "Edit" : "Create"}} Product</li>
+        </ol>
+    </nav>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Form</h5>
+        <form class="row g-3" #form="ngForm" (ngSubmit)="save(form)">
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input type="text" class="form-control" [(ngModel)]="product.name" name="name"
+                        placeholder="Product Name">
+                    <label for="floatingName">Product Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="number" class="form-control" [(ngModel)]="product.price" name="price"
+                        placeholder="Price">
+                    <label for="floatingPrice">Price</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" [(ngModel)]="product.imageUrl" name="imageUrl"
+                        placeholder="ImageUrl">
+                    <label for="floatingImageUrl">Image Url</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control" [(ngModel)]="product.description" name="description"
+                        placeholder="Description" style="height: 100px;"></textarea>
+                    <label for="floatingDescription">Description</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-secondary" routerLink="/admin/main/products">Cancel</button>
+                <button type="submit" class="btn btn-outline-success mx-2">
+                    {{editing ? "Edit" : "Create"}}
+                    Product
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

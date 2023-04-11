@@ -15,7 +15,7 @@ export class ProductRepository implements OnInit {
     }
 
     getProduct(id: number): ProductModel {
-        return this.products.find(i => i.id === id)
+        return this.products.find(i => i.id == id)
     }
     getProducts(category: CategoryModel = null): ProductModel[] {
         if (category) {
