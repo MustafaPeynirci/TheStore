@@ -1,7 +1,7 @@
 import { Order } from './order.model';
 import { CategoryModel } from './category.model';
 import { ProductModel } from './product.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -22,6 +22,20 @@ export class RestService {
   }
   saveOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(this.baseUrl + "orders", order)
+  }
+  addProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.post<ProductModel>(this.baseUrl + "products", product, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.token}>`
+      })
+    })
+  }
+  updateProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.put<ProductModel>(this.baseUrl + "products/" + product.id, product, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.token}>`
+      })
+    })
   }
   authentication(username: string, password: string): Observable<boolean> {
     return this.http.post<any>(this.baseUrl + "login", {

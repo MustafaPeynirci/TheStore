@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { CategoryModel } from './category.model';
 import { RestService } from './rest.service';
 import { ProductModel } from './product.model';
@@ -7,7 +8,10 @@ import { Injectable, OnInit } from "@angular/core";
 export class ProductRepository implements OnInit {
     private products: ProductModel[] = []
 
-    constructor(private restService: RestService) {
+    constructor(
+        private restService: RestService,
+        private toastr: ToastrService
+    ) {
         this.restService.getProducts().subscribe(products => this.products = products)
     }
 
@@ -23,6 +27,18 @@ export class ProductRepository implements OnInit {
         }
         else {
             return this.products
+        }
+    }
+    saveProduct(product: ProductModel) {
+        if (product.id == null || product.id == 0) {
+            this.restService.addProduct(product).subscribe(p => this.products.push(p))
+            this.toastr.success("The product has been successfully added.")
+        }
+        else {
+            this.restService.updateProduct(product).subscribe(p => {
+                this.products.splice(this.products.findIndex(p => p.id == product.id), 1, product)
+                this.toastr.success("The product has been successfully updated.")
+            })
         }
     }
 

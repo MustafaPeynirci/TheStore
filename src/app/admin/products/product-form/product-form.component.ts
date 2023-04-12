@@ -1,7 +1,8 @@
+import { NgForm } from '@angular/forms';
 import { ProductRepository } from './../../../model/product.repository';
 import { ProductModel } from './../../../model/product.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -15,7 +16,8 @@ export class ProductFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productRepository: ProductRepository
+    private productRepository: ProductRepository,
+    private router: Router,
   ) {
     this.editing = activatedRoute.snapshot.params['mode'] == 'edit'
     if (this.editing) {
@@ -26,8 +28,9 @@ export class ProductFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save(form) {
-
+  save(form: NgForm) {
+    this.productRepository.saveProduct(this.product)
+    this.router.navigateByUrl("/admin/main/products")
   }
 
 }
