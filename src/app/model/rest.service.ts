@@ -37,6 +37,13 @@ export class RestService {
       })
     })
   }
+  deleteProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.delete<ProductModel>(this.baseUrl + "products/" + product.id, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.token}>`
+      })
+    })
+  }
   authentication(username: string, password: string): Observable<boolean> {
     return this.http.post<any>(this.baseUrl + "login", {
       username: username,
