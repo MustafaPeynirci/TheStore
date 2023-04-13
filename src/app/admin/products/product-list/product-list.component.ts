@@ -9,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
+  productModel: ProductModel
+  selectedProduct: ProductModel
+
   constructor(private productRepository: ProductRepository) { }
 
   ngOnInit(): void {
@@ -19,6 +22,13 @@ export class ProductListComponent implements OnInit {
   }
   removeProduct(product: ProductModel) {
     this.productRepository.deleteProduct(product)
+  }
+  changeSelected(select) {
+    this.selectedProduct = select
+  }
+  getProduct(data: any) {
+    this.productModel = data
+    this.removeProduct(data)
   }
 
 }
