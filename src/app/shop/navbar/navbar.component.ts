@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './../../model/auth.service';
 import { Cart } from './../../model/cart.model';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     public cart: Cart,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class NavbarComponent implements OnInit {
   signOut() {
     this.authService.clear()
     this.router.navigateByUrl("/shop")
+    this.toastr.success("You have been successfully logged out.")
   }
 
 }

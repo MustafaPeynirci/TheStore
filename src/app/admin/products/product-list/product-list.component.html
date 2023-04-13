@@ -30,7 +30,7 @@
                             <img src="../../../assets/img/{{item.imageUrl}}" width="80" alt="{{item.name}}">
                         </td>
                         <td>{{item.name}}</td>
-                        <td>{{item.price}}</td>
+                        <td><i class="bi bi-currency-dollar"></i>{{item.price}}</td>
                         <td class="text-end">
                             <button class="btn btnEdit" [routerLink]="['/admin/main/products/edit',item.id]">
                                 <i class="bi bi-pencil-square"></i>

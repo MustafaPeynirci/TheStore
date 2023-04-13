@@ -2,6 +2,7 @@ import { AuthService } from './../../model/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +17,8 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +28,8 @@ export class AuthComponent implements OnInit {
     if (form.valid) {
       this.authService.authenticate(this.username, this.password).subscribe(response => {
         if (response) {
-          this.router.navigateByUrl("/admin/main")
+          this.router.navigateByUrl("/admin/main/products")
+          this.toastr.success("You have been successfully logged in.")
         }
         else {
           this.errorMessage = "Username or password incorrect."

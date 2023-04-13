@@ -1,0 +1,7 @@
+.colorCustom {
+  color: #4154f1;
+}
+.borderCustom,
+.borderCustom:hover {
+  border-bottom: 1px solid;
+}

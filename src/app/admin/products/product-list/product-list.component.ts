@@ -1,6 +1,7 @@
 import { ProductModel } from './../../../model/product.model';
 import { ProductRepository } from './../../../model/product.repository';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,10 @@ export class ProductListComponent implements OnInit {
   productModel: ProductModel
   selectedProduct: ProductModel
 
-  constructor(private productRepository: ProductRepository) { }
+  constructor(
+    private productRepository: ProductRepository,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +26,7 @@ export class ProductListComponent implements OnInit {
   }
   removeProduct(product: ProductModel) {
     this.productRepository.deleteProduct(product)
+    this.toastr.success("The product has been successfully deleted.")
   }
   changeSelected(select) {
     this.selectedProduct = select

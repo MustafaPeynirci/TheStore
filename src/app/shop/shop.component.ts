@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ShopComponent implements OnInit {
 
   public selectedCategory: CategoryModel = null
-  public productsPerPage = 3
+  public productsPerPage = 999
   public selectedPage = 1
   public selectedProducts: ProductModel[] = []
 

@@ -31,6 +31,12 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
+                        <a class="dropdown-item d-flex align-items-center" type="button" routerLink="/shop">
+                            <i class="bi bi-grid"></i>
+                            <span>Back to Home</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item d-flex align-items-center" type="button" (click)="signOut()">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
@@ -44,13 +50,7 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link" routerLink="/shop">
-                <i class="bi bi-grid"></i>
-                <span>Home</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" routerLink="/admin/main/products" routerLinkActive="active">
+            <a class="nav-link" routerLink="/admin/main/products" routerLinkActive="active">
                 <i class="bi bi-box"></i>
                 <span>Products</span>
                 <span class="badge text-muted"></span>

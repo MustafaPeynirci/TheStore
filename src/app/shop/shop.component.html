@@ -12,10 +12,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="col-md-3">
-            <app-category-list (category)="getCategory($event)"></app-category-list>
-        </div>
-        <div class="col-md-9">
+        <div class="col-md-12 mt-1">
             <nav>
                 <ol class="breadcrumb justify-content-between">
                     <li class="breadcrumb-item active">
@@ -26,11 +23,16 @@
                             (change)="changePageSize($any($event.target).value)">
                             <option value="3">Three product</option>
                             <option value="4">Four product</option>
-                            <option value="6">Six product</option>
+                            <option value="8">Eight product</option>
+                            <option value="12">Twelve product</option>
+                            <option value="999">All product</option>
                         </select>
                     </div>
                 </ol>
             </nav>
+            <div class="row mb-3 mt-3">
+                <app-category-list (category)="getCategory($event)"></app-category-list>
+            </div>
             <app-cart-summary></app-cart-summary>
             <app-product-list [products]="products"></app-product-list>
             <div class="row mt-3">

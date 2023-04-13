@@ -12,14 +12,22 @@
                 </ol>
             </nav>
         </div>
-        <div class="d-flex justify-content-center" *ngIf="cart.itemCount==0">
-            <div class="alert alert-info alert-dismissible fade show text-center col-md-6 text-muted" role="alert">
+
+        <div class="d-flex justify-content-center flex-column" *ngIf="cart.itemCount==0">
+            <button class="btn text-muted" routerLink="/shop">
+                Click to continue shopping.
+            </button>
+            <div class="d-flex justify-content-center col-md-12">
+                <img src="../../../assets/img/noData.png" width="60%" alt="noData">
+            </div>
+
+            <!-- <div class="alert alert-info alert-dismissible fade show text-center col-md-6 text-muted" role="alert">
                 <i class="bi bi-info-circle"></i><br>
                 There are no items in your cart <br>
                 <button class="btn" routerLink="/shop">
                     Click to continue shopping.
                 </button>
-            </div>
+            </div> -->
         </div>
         <div class="col-md-8">
             <div class="card" *ngIf="cart.itemCount>0">
