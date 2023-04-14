@@ -1,1 +1,64 @@
-<p>category-list works!</p>
+<div class="pagetitle">
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/admin/main" class="text-decoration-none">Admin</a></li>
+            <li class="breadcrumb-item active">Categories</li>
+        </ol>
+    </nav>
+</div>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 d-flex justify-content-end">
+                <button class="btn btn-outline-success" routerLink="/admin/main/categories/create">
+                    <i class="bi bi-plus-lg"></i>
+                    Add
+                </button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of getCategories()">
+
+                        <td>{{item.name}}</td>
+                        <td class="text-end">
+                            <button class="btn btnEdit" [routerLink]="['/admin/main/categories/edit',item.id]">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button class="btn btnDelete" (click)="changeSelected(item)" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                                aria-labelledby="deleteModalLabel" aria-hidden="false">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-start">
+                                            Are you sure you want to delete?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary btn-sm"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"
+                                                (click)="getCategory(selectedCategory)">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

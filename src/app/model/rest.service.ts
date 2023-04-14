@@ -30,6 +30,13 @@ export class RestService {
       })
     })
   }
+  addCategory(category: CategoryModel): Observable<CategoryModel> {
+    return this.http.post<CategoryModel>(this.baseUrl + "categories", category, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.token}>`
+      })
+    })
+  }
   updateProduct(product: ProductModel): Observable<ProductModel> {
     return this.http.put<ProductModel>(this.baseUrl + "products/" + product.id, product, {
       headers: new HttpHeaders({
@@ -37,8 +44,22 @@ export class RestService {
       })
     })
   }
+  updateCategory(category: CategoryModel): Observable<CategoryModel> {
+    return this.http.put<CategoryModel>(this.baseUrl + "categories/" + category.id, category, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.token}>`
+      })
+    })
+  }
   deleteProduct(product: ProductModel): Observable<ProductModel> {
     return this.http.delete<ProductModel>(this.baseUrl + "products/" + product.id, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.token}>`
+      })
+    })
+  }
+  deleteCategory(category: CategoryModel): Observable<CategoryModel> {
+    return this.http.delete<CategoryModel>(this.baseUrl + "categories/" + category.id, {
       headers: new HttpHeaders({
         "Authorization": `Bearer<${this.token}>`
       })

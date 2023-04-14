@@ -1,1 +1,30 @@
-<p>category-form works!</p>
+<div class="pagetitle">
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/admin/main" class="text-decoration-none">Admin</a></li>
+            <li class="breadcrumb-item active"> {{editing ? "Edit" : "Create"}} Category</li>
+        </ol>
+    </nav>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Form</h5>
+        <form class="row g-3" #form="ngForm" (ngSubmit)="save(form)">
+            <div class="col-md-12">
+                <div class="form-floating">
+                    <input type="text" class="form-control" [(ngModel)]="category.name" name="name"
+                        placeholder="Category Name">
+                    <label for="floatingName">Category Name</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-outline-secondary"
+                    routerLink="/admin/main/categories">Cancel</button>
+                <button type="submit" class="btn btn-outline-success mx-2">
+                    {{editing ? "Edit" : "Create"}}
+                    Category
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
