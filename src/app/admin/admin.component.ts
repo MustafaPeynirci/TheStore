@@ -11,6 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdminComponent implements OnInit {
 
+  menuState: boolean = false;
+
   constructor(
     public cart: Cart,
     private authService: AuthService,
@@ -25,6 +27,10 @@ export class AdminComponent implements OnInit {
     this.authService.clear()
     this.router.navigateByUrl("/shop")
     this.toastr.success("You have been successfully logged out.")
+  }
+  menuToggle() {
+    this.menuState = !this.menuState
+    document.getElementsByTagName("body")[0].classList.toggle("toggle-sidebar")
   }
 
 }
