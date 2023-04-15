@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Cart } from './../../model/cart.model';
 import { Component, OnInit } from '@angular/core';
 
